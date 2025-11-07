@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card card-custom shadow-lg">
+            <div class="card-body text-center">
+                <h1 class="display-4">Bienvenido al Sistema SPA</h1>
+                <p class="lead">Sistema de administración para centro de bienestar y spa</p>
+                
+                <div class="mt-5">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="SPA Center" 
+                         class="img-fluid rounded shadow" 
+                         style="max-height: 400px;">
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5>👥 Empleados</h5>
+                                <p>Gestión del personal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5>👨‍💼 Clientes</h5>
+                                <p>Administración de clientes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5>💆 Servicios</h5>
+                                <p>Catálogo de servicios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

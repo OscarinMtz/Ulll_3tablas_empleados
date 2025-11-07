@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="text-center">➕ Agregar Nuevo Empleado</h3>
+                <p class="text-center mb-0"><small>Los IDs se generarán automáticamente</small></p>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <h6>📋 Información sobre IDs:</h6>
+                    <ul class="mb-0">
+                        <li><strong>ID Empleado:</strong> Se asignará automáticamente (1, 2, 3...)</li>
+                        <li><strong>ID Servicios:</strong> Se asignará automáticamente (1-10)</li>
+                    </ul>
+                </div>
+                
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" name="nombre" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Apellido:</label>
+                                <input type="text" class="form-control" name="apellido" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Especialidad:</label>
+                                <input type="text" class="form-control" name="especialidad" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Teléfono:</label>
+                                <input type="number" class="form-control" name="telefono" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Cargo:</label>
+                        <input type="text" class="form-control" name="cargo" required>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-spa me-2">Guardar Empleado</button>
+                        <a href="{% url 'ver_empleados' %}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">👥 Lista de Empleados</h3>
+                <a href="{% url 'agregar_empleado' %}" class="btn btn-light">➕ Agregar Nuevo</a>
+            </div>
+            <div class="card-body">
+                <!-- Mensaje informativo -->
+                <div class="alert alert-secondary mb-3">
+                    <small>
+                        <strong>💡 Información:</strong> 
+                        <strong>ID</strong> = Número único automático del empleado | 
+                        <strong>ID Servicios</strong> = Servicio asignado automáticamente
+                    </small>
+                </div>
+                
+                {% if empleados %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Especialidad</th>
+                                <th>Teléfono</th>
+                                <th>Cargo</th>
+                                <th>ID Servicios</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for empleado in empleados %}
+                            <tr>
+                                <td><strong>{{ empleado.id_empleados }}</strong></td>
+                                <td>{{ empleado.nombre }}</td>
+                                <td>{{ empleado.apellido }}</td>
+                                <td>{{ empleado.especialidad }}</td>
+                                <td>{{ empleado.telefono }}</td>
+                                <td>{{ empleado.cargo }}</td>
+                                <td>{{ empleado.id_servicios }}</td>
+                                <td>
+                                    <a href="{% url 'actualizar_empleado' empleado.id_empleados %}" class="btn btn-warning btn-sm">✏️ Editar</a>
+                                    <a href="{% url 'borrar_empleado' empleado.id_empleados %}" class="btn btn-danger btn-sm">🗑️ Borrar</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <h4>No hay empleados registrados</h4>
+                    <p>¡Comienza agregando el primer empleado!</p>
+                    <a href="{% url 'agregar_empleado' %}" class="btn btn-spa">Agregar Primer Empleado</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
